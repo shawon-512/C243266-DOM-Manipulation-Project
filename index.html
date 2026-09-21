@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Activity Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Student Activity Dashboard</h1>
+      <p>Use this dashboard to manage student activities: add students, search them, change their status, and remove them.</p>
+    </div>
+    <button id="darkToggle" type="button" aria-pressed="false">
+      <span id="darkIcon">🌙</span>
+      <span id="darkLabel">Dark mode</span>
+    </button>
+  </header>
+
+  <section class="stats">
+    <div class="stat total">
+      <div class="label">Total students</div>
+      <div class="value" id="statTotal">0</div>
+    </div>
+    <div class="stat active">
+      <div class="label">Active students</div>
+      <div class="value" id="statActive">0</div>
+    </div>
+    <div class="stat inactive">
+      <div class="label">Inactive students</div>
+      <div class="value" id="statInactive">0</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Add a new student</h2>
+    <form id="addForm">
+      <div class="field">
+        <label for="nameInput">Student name</label>
+        <input id="nameInput" type="text" placeholder="e.g. John Doe" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="idInput">Student ID</label>
+        <input id="idInput" type="text" placeholder="e.g. CSE-101" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="deptInput">Department</label>
+        <input id="deptInput" type="text" placeholder="e.g. CSE" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="statusInput">Status</label>
+        <select id="statusInput">
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+      <button id="addBtn" type="submit">+ Add student</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <div class="students-head">
+      <h2>Students</h2>
+      <div class="controls">
+        <input id="searchInput" type="text" placeholder="Search by name or ID…">
+        <div class="filters" role="group" aria-label="Filter students by status">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="active" type="button">Active</button>
+          <button class="filter-btn" data-filter="inactive" type="button">Inactive</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="emptyState">
+      <p>No students added yet.</p>
+      <p>Add your first student using the form above.</p>
+    </div>
+
+    <div id="studentsList" class="hidden"></div>
+  </section>
+
+  <footer>Built with plain HTML, CSS and JavaScript to practice DOM manipulation.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
